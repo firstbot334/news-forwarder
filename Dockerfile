@@ -6,6 +6,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 ENV PYTHONUNBUFFERED=1 TZ=Asia/Seoul
+
+# Ensure LF and exec bit for start.sh
 RUN sed -i 's/\r$//' start.sh && chmod +x start.sh
 
 CMD ["./start.sh"]
